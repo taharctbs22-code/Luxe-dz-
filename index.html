@@ -7,8 +7,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<!-- إضافة مكتبة Confetti لتأثير الانفجار والاحتفال -->
+<!-- مكتبة Confetti لتأثير الانفجار والاحتفال -->
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<!-- ================= Meta Pixel Code (البيكسل الأساسي) ================= -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'ضع_رقم_البيكسل_هنا'); // سيتم وضع رقم البيكسل هنا لاحقاً
+fbq('track', 'PageView'); // تسجيل زيارة الصفحة
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=ضع_رقم_البيكسل_هنا&ev=PageView&noscript=1"
+/></noscript>
+<!-- ================= End Meta Pixel Code ================= -->
 
 <style>
 /* ================= المتغيرات والأساسيات ================= */
@@ -84,58 +102,21 @@ body {
     overflow: hidden;
 }
 
-/* السعر بدون شطب + واضح جداً */
 .normal-price-alert {
-    font-size: 18px;
-    font-weight: 900;
-    color: var(--text-main);
-    margin-bottom: 5px;
-    background: #fff;
-    display: inline-block;
-    padding: 8px 20px;
-    border-radius: 20px;
-    box-shadow: 4px 4px 10px rgba(0,0,0,0.05);
+    font-size: 18px; font-weight: 900; color: var(--text-main); margin-bottom: 5px; background: #fff; display: inline-block; padding: 8px 20px; border-radius: 20px; box-shadow: 4px 4px 10px rgba(0,0,0,0.05);
 }
-.normal-price-alert span {
-    font-size: 30px;
-    color: var(--text-main);
-    font-weight: 900;
-    margin: 0 5px;
-}
+.normal-price-alert span { font-size: 30px; color: var(--text-main); font-weight: 900; margin: 0 5px; }
 
-/* رسالة التحفيز والهدية واضحة لتمنع الخروج */
 .gift-message {
-    font-size: 18px;
-    font-weight: 900;
-    color: #fff;
-    background: linear-gradient(135deg, #d62258, #ff4e7e);
-    padding: 12px 15px;
-    border-radius: 18px;
-    margin: 15px auto 25px auto;
-    width: 95%;
-    box-shadow: 0 8px 15px rgba(214, 34, 88, 0.3);
-    animation: pulseMessage 2s infinite;
+    font-size: 18px; font-weight: 900; color: #fff; background: linear-gradient(135deg, #d62258, #ff4e7e); padding: 12px 15px; border-radius: 18px; margin: 15px auto 25px auto; width: 95%; box-shadow: 0 8px 15px rgba(214, 34, 88, 0.3); animation: pulseMessage 2s infinite;
 }
 @keyframes pulseMessage { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
 
-/* الهدية الضخمة */
 .gift-button {
-    font-size: 110px; /* هدية عملاقة */
-    cursor: pointer;
-    display: inline-block;
-    filter: drop-shadow(0 20px 25px rgba(214, 34, 88, 0.4));
-    animation: bounceAndShakeGift 2.5s infinite ease-in-out;
-    transition: 0.2s;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
+    font-size: 110px; cursor: pointer; display: inline-block; filter: drop-shadow(0 20px 25px rgba(214, 34, 88, 0.4)); animation: bounceAndShakeGift 2.5s infinite ease-in-out; transition: 0.2s; user-select: none; -webkit-tap-highlight-color: transparent;
 }
-.gift-button:active {
-    transform: scale(0.8) !important;
-}
-.gift-hint {
-    display: block; margin-top: 10px; font-size: 20px; font-weight: 900; color: var(--dark-rose);
-    text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
-}
+.gift-button:active { transform: scale(0.8) !important; }
+.gift-hint { display: block; margin-top: 10px; font-size: 20px; font-weight: 900; color: var(--dark-rose); text-shadow: 1px 1px 0px rgba(255,255,255,0.8); }
 
 @keyframes bounceAndShakeGift {
     0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
@@ -145,11 +126,8 @@ body {
 }
 
 /* إخفاء الاستمارة في البداية */
-#checkoutFormWrapper {
-    display: none; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease;
-}
+#checkoutFormWrapper { display: none; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
 #checkoutFormWrapper.show { display: block; opacity: 1; transform: translateY(0); }
-
 
 /* ================= عرض السعر الضخم بعد فتح الهدية ================= */
 .mega-price-banner { text-align: center; background: linear-gradient(135deg, #fff0f3, #ffffff); border: 2px dashed #ffb8ca; border-radius: 20px; padding: 15px; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(214, 34, 88, 0.08);}
@@ -166,39 +144,18 @@ body {
 /* ================= بطاقات العروض (متناثلة ومريحة) ================= */
 .offer-card { 
     background: var(--bg-color); border-radius: 22px; padding: 20px; margin-bottom: 25px; cursor: pointer; transition: all 0.3s ease; position: relative; 
-    box-shadow: 9px 9px 18px var(--shadow-dark), -9px -9px 18px var(--shadow-light);
-    border: 1px solid rgba(255,255,255,0.6);
+    box-shadow: 9px 9px 18px var(--shadow-dark), -9px -9px 18px var(--shadow-light); border: 1px solid rgba(255,255,255,0.6);
 }
 .offer-card:hover { transform: translateY(-3px); box-shadow: 12px 12px 22px var(--shadow-dark), -12px -12px 22px var(--shadow-light); }
-
-.offer-card.active { 
-    box-shadow: inset 8px 8px 16px var(--shadow-dark), inset -8px -8px 16px var(--shadow-light);
-    border: 2px solid var(--primary-rose);
-    background: #fdf5f7;
-}
+.offer-card.active { box-shadow: inset 8px 8px 16px var(--shadow-dark), inset -8px -8px 16px var(--shadow-light); border: 2px solid var(--primary-rose); background: #fdf5f7; }
 
 .offer-header-row { display: flex; align-items: center; margin-bottom: 15px; position: relative; }
-.radio-btn {
-    width: 28px; height: 28px; border-radius: 50%; margin-left: 15px; position: relative; flex-shrink: 0;
-    box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
-    background: var(--bg-color);
-}
+.radio-btn { width: 28px; height: 28px; border-radius: 50%; margin-left: 15px; position: relative; flex-shrink: 0; box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light); background: var(--bg-color); }
 .offer-card.active .radio-btn { box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light); }
-.offer-card.active .radio-btn::after {
-    content: ''; position: absolute; top: 5px; left: 5px; right: 5px; bottom: 5px;
-    background: var(--primary-rose); border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(214, 34, 88, 0.5);
-    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+.offer-card.active .radio-btn::after { content: ''; position: absolute; top: 5px; left: 5px; right: 5px; bottom: 5px; background: var(--primary-rose); border-radius: 50%; box-shadow: 0 2px 5px rgba(214, 34, 88, 0.5); animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 
-/* العناوين واضحة وكبيرة */
 .offer-title { font-weight: 900; font-size: 22px; color: var(--text-main); margin: 0; text-shadow: 1px 1px 0px rgba(255,255,255,0.5);}
-
-/* تلميح "اضغطي هنا" مائل وفي الزاوية ومصغر */
-.tap-hint { 
-    position: absolute; left: 0; top: -10px; font-size: 11px; font-weight: 900; color: #fff; background: var(--primary-rose); padding: 3px 10px; border-radius: 12px; 
-    transform: rotate(-10deg); animation: pulseHint 1.5s infinite; box-shadow: 0 4px 8px rgba(214,34,88,0.3); 
-}
+.tap-hint { position: absolute; left: 0; top: -10px; font-size: 11px; font-weight: 900; color: #fff; background: var(--primary-rose); padding: 3px 10px; border-radius: 12px; transform: rotate(-10deg); animation: pulseHint 1.5s infinite; box-shadow: 0 4px 8px rgba(214,34,88,0.3); }
 .offer-card.active .tap-hint { display: none; }
 
 .price-container { display: flex; align-items: center; justify-content: flex-start; gap: 12px; background: var(--bg-color); padding: 12px 15px; border-radius: 14px; margin-bottom: 10px; box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);}
@@ -330,7 +287,7 @@ input:focus, select:focus { box-shadow: inset 8px 8px 16px var(--shadow-dark), i
         </div>
     </div>
 
-    <!-- ================= صندوق الهدية المتفجر (يظهر أولاً) ================= -->
+    <!-- ================= صندوق الهدية المتفجر ================= -->
     <div id="giftBoxSection">
         <div class="normal-price-alert">
             السعر العادي للسماعة هو: <span>3500 د.ج</span>
@@ -347,7 +304,7 @@ input:focus, select:focus { box-shadow: inset 8px 8px 16px var(--shadow-dark), i
         </div>
     </div>
 
-    <!-- ================= الاستمارة المخفية (تظهر بعد انفجار الهدية) ================= -->
+    <!-- ================= الاستمارة المخفية ================= -->
     <div id="checkoutFormWrapper">
         <div class="checkout-section" id="checkoutForm">
             <h2 class="checkout-title">مبروك! لقد فتحتِ تخفيضك الخاص 🎉</h2>
@@ -371,12 +328,10 @@ input:focus, select:focus { box-shadow: inset 8px 8px 16px var(--shadow-dark), i
                     <span class="offer-title">قطعة واحدة</span>
                     <span class="tap-hint">اضغطي هنا 👆</span>
                 </div>
-                
                 <div class="price-container">
                     <span class="old-price">3500 د.ج</span>
                     <span class="offer-price">2800 د.ج</span>
                 </div>
-                
                 <div class="color-picker-group" id="colors-offer-1">
                     <div class="color-picker-title">✨ ممتاز! الآن اختاري اللون الذي تفضلينه:</div>
                     <div class="colors-row">
@@ -397,18 +352,15 @@ input:focus, select:focus { box-shadow: inset 8px 8px 16px var(--shadow-dark), i
                     <span class="offer-title">قطعتين (اختيارك)</span>
                     <span class="tap-hint">اضغطي هنا 👆</span>
                 </div>
-
                 <div class="price-container">
                     <span class="old-price">7000 د.ج</span>
                     <span class="offer-price">5200 د.ج</span>
                 </div>
-                
                 <div class="color-picker-group" id="colors-offer-2">
                     <select id="offer2-type" style="margin-bottom: 15px;" onchange="toggleOffer2Colors(this.value)">
                         <option value="same">أريد نفس اللون للقطعتين</option>
                         <option value="diff">أريد لونين مختلفين</option>
                     </select>
-                    
                     <div id="offer2-color-1">
                         <div class="color-picker-title">اختاري لون القطعة الأولى:</div>
                         <div class="colors-row">
@@ -419,7 +371,6 @@ input:focus, select:focus { box-shadow: inset 8px 8px 16px var(--shadow-dark), i
                         </div>
                         <div id="lbl-2-1" class="selected-color-name">اللون الأول: برتقالي</div>
                     </div>
-                    
                     <div id="offer2-color-2" style="display:none; margin-top:20px; padding-top:15px; border-top:1px dashed rgba(0,0,0,0.1);">
                         <div class="color-picker-title">اختاري لون القطعة الثانية:</div>
                         <div class="colors-row">
@@ -441,7 +392,6 @@ input:focus, select:focus { box-shadow: inset 8px 8px 16px var(--shadow-dark), i
                     <span class="offer-title">3 قطع + توصيل مجاني</span>
                     <span class="tap-hint">اضغطي هنا 👆</span>
                 </div>
-
                 <div class="price-container">
                     <span class="old-price">10500 د.ج</span>
                     <span class="offer-price">7800 د.ج</span>
@@ -606,7 +556,7 @@ input:focus, select:focus { box-shadow: inset 8px 8px 16px var(--shadow-dark), i
         });
     };
 
-    // الدالة السحرية لفتح الهدية مع انفجار Confetti
+    // دالة فتح الهدية مع انفجار Confetti
     function openGift(e) {
         if(isGiftOpened) return;
         isGiftOpened = true;
@@ -614,47 +564,29 @@ input:focus, select:focus { box-shadow: inset 8px 8px 16px var(--shadow-dark), i
         let giftBox = document.getElementById('giftBoxSection');
         let formWrapper = document.getElementById('checkoutFormWrapper');
         
-        // إطلاق انفجار الـ Confetti من موقع الضغطة (أو من المنتصف)
         let rect = document.getElementById('giftBtn').getBoundingClientRect();
         let xPos = (rect.left + rect.width / 2) / window.innerWidth;
         let yPos = (rect.top + rect.height / 2) / window.innerHeight;
 
-        // إطلاق القصاصات الملونة والذهبية (انفجار قوي)
         confetti({
             particleCount: 150,
             spread: 80,
             origin: { x: xPos, y: yPos },
-            colors: ['#d62258', '#ffb6c1', '#c58d24', '#ffffff'] // ألوان متناسقة مع متجرك
+            colors: ['#d62258', '#ffb6c1', '#c58d24', '#ffffff']
         });
 
-        // تأثير اهتزاز وتصغير للهدية ثم إخفاؤها
         giftBox.style.transition = "0.5s";
         giftBox.style.transform = "scale(0)";
         giftBox.style.opacity = "0";
         
         setTimeout(() => {
             giftBox.style.display = "none";
-            // إظهار الاستمارة بحركة ناعمة
             formWrapper.classList.add('show');
-            // التمرير التلقائي نحو السعر الجديد المذهل
             formWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
             
-            // إطلاق انفجار ثاني خفيف من الأعلى احتفالاً بالاستمارة
             setTimeout(() => {
-                confetti({
-                    particleCount: 100,
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0 },
-                    colors: ['#d62258', '#c58d24']
-                });
-                confetti({
-                    particleCount: 100,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1 },
-                    colors: ['#d62258', '#c58d24']
-                });
+                confetti({ particleCount: 100, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#d62258', '#c58d24'] });
+                confetti({ particleCount: 100, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#d62258', '#c58d24'] });
             }, 500);
 
         }, 500);
@@ -782,8 +714,21 @@ input:focus, select:focus { box-shadow: inset 8px 8px 16px var(--shadow-dark), i
         btn.innerText = "جاري الإرسال..."; btn.disabled = true;
 
         fetch(url).then(response => {
-            if (response.ok) document.getElementById('successModal').classList.add('active');
-            else alert("حدث خطأ في الإرسال. يرجى المحاولة مرة أخرى.");
+            if (response.ok) {
+                // إظهار نافذة النجاح
+                document.getElementById('successModal').classList.add('active');
+                
+                // === إرسال حدث الشراء (Purchase) لبيكسل فيسبوك ===
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Purchase', {
+                        value: finalTotal,
+                        currency: 'DZD'
+                    });
+                }
+            }
+            else {
+                alert("حدث خطأ في الإرسال. يرجى المحاولة مرة أخرى.");
+            }
         }).catch(error => { alert("يرجى التحقق من اتصالك بالإنترنت."); })
           .finally(() => { btn.innerText = "تأكيد الطلب الآن 🚀"; btn.disabled = false; });
     }
